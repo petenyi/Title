@@ -1,0 +1,78 @@
+\usepackage[utf8]{inputenc} 
+\usepackage[slovak]{babel} 
+\usepackage[LGR,T1]{fontenc} 
+\usepackage{ae,aecompl} 
+\usepackage{lmodern}
+\usepackage{url}
+
+\usepackage{makeidx}
+\makeindex
+
+\usepackage[font=small,labelfont=bf]{captio n}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{skak}
+\usepackage{skripta}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage[section]{placeins}
+\usepackage{trimclip}
+
+\setlength{\topmargin}{0cm}
+\setlength{\topskip}{1cm}% between header and text
+\setlength{\textheight}{20cm} % height of main text
+\setlength{\textwidth}{14cm}    % width of text
+\setlength{\oddsidemargin}{2.3cm} % odd page left margin
+\setlength{\evensidemargin}{1.9cm} % even page left margin
+
+\usepackage{phdthesis}
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+ \item[]}{\end{list}}
+
+\newcommand{\x}{\overline{x}}
+
+\makeatletter
+\DeclareFontFamily{U}{tipa}{}
+\DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
+\newcommand{\arc@char}{{\usefont{U}{tipa}{m}{n}\symbol{62}}}%
+
+\newcommand{\arc}[1]{\mathpalette\arc@arc{#1}}
+
+\newcommand{\arc@arc}[2]{%
+  \sbox0{$\m@th#1#2$}%
+  \vbox{
+    \hbox{\resizebox{\wd0}{\height}{\arc@char}}
+    \nointerlineskip
+    \box0
+  }%
+}
+\makeatother
+
+
+\newcommand{\shortrightarrow}{%
+  \mkern 2mu%
+  \clipbox{{.5\width} 0 0 0}{$\vphantom{+}{\rightarrow}$}%
+  }
+
+\newcommand{\shortleftarrow}{%
+  \mkern 2mu%
+  \clipbox{0 0 {.5\width} 0}{$\vphantom{+}{\leftarrow}$}%
+  }
+
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\floatpagefraction}{0.7}
+
+%\setcounter{\topnumber}{1}
+
+
+\DeclareMathOperator*{\Lcomp}{L}
+\DeclareMathOperator*{\Rcomp}{R}
