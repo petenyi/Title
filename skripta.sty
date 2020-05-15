@@ -1,0 +1,155 @@
+\theoremstyle{definition}
+\newtheorem{ve}{Tvrdenie}[chapter]
+\newtheorem{sm}{Sumár}
+\newtheorem{ds}[ve]{Dôsledok}
+\newtheorem{lm}[ve]{Lemma}
+\newtheorem{df}[ve]{Definícia}
+%\theoremstyle{remark}
+\newtheorem*{dk}{Dôkaz}
+
+\newtheoremstyle{note} % meno stylu
+{10pt}                 % space above
+{10pt}                 % space below
+{\small}               % body font
+{}                     % indent ammount
+{\bfseries}            % theorem head font
+{.}                    % puctuation after theorem head
+{.5em}                 % space after theorem head
+{}                     % theorem head spec - empty menas normal
+
+\theoremstyle{note}
+\newtheorem{pr}[ve]{Príklad}
+\newtheorem{pz}[ve]{Poznámka}
+
+\newcount\exercise%
+
+\newwrite\exerlist
+\immediate\openout\exerlist=\jobname.frf
+
+\newcommand\cvicenia{%
+    \global\exercise 0%
+    \medskip%
+    \noindent%
+    \hbox to \hsize{%
+	\leaders\hrule height 0.4em depth -0.38em\hfil%
+	\hspace{1cm}
+	{%
+	    \bf%
+	    Cvičenia%
+	}%
+	\hspace{1cm}
+	\leaders\hrule height 0.4em depth -0.38em\hfil%
+    }%
+    \medskip%
+}
+
+\newenvironment{cv}[2]
+{%
+    \global\advance\exercise by 1%
+    \immediate\write\exerlist{\thesection.\the\exercise\space #1}%
+    \renewcommand\label[1]{\@bsphack%
+                               \protected@write\@auxout{}{\string\newlabel{##1}{{\thesection.\the\exercise}{\thepage}}}%
+                           \@esphack}
+    \noindent%
+    \ifdim#2pt=1pt
+       % {{\huge \sympawn} \bfseries Úloha \thesection.\the\exercise.}%
+	 {{\WhitePawnOnBlack} \bfseries Úloha \thesection.\the\exercise.}%	
+    \else%
+        \ifdim#2pt=2pt
+	        %{{\huge \symknight} \bfseries Úloha \thesection.\the\exercise.}%
+	           {{\WhiteKnightOnBlack} \bfseries Úloha \thesection.\the\exercise.}%
+       \else%
+   	       \ifdim#2pt=3pt
+	        		%{{\huge \symrook} \bfseries Úloha \thesection.\the\exercise.}%
+			{{\WhiteRookOnBlack} \bfseries Úloha \thesection.\the\exercise.}%
+      	       \else%
+   	        		\ifdim#2pt=4pt
+	        			%{{\huge \symbishop} \bfseries Úloha \thesection.\the\exercise.}%
+				{{\WhiteBishopOnBlack} \bfseries Úloha \thesection.\the\exercise.}%
+      			\else%
+   	       			\ifdim#2pt=5pt
+	        				%{{\huge \symqueen} \bfseries Úloha \thesection.\the\exercise.}%
+					{{\WhiteQueenOnBlack} \bfseries Úloha \thesection.\the\exercise.}%
+       				\else%
+   	        				%{{\huge \symking} \bfseries Úloha \thesection.\the\exercise.}%
+					{{\WhiteKingOnBlack} \bfseries Úloha \thesection.\the\exercise.}%
+       				\fi%
+      			\fi%
+       	       \fi%
+       \fi%
+    \fi%
+}%
+{%
+    \medskip%
+}%
+
+%\newenvironment{cv}{%
+%    \global\advance\exercise by 1%
+%    \noindent%
+%    {\bfseries Úloha \the\exercise.}%
+%}{\medskip}%
+
+\newcommand\prop[2]{$(#2_{\mathbf{#1}})$}
+
+\newcommand\eod{\hfill$\ddagger$}
+
+\newcommand\pot[1]{\ensuremath{\mathrm{Pot}(#1)}}
+\newcommand\maps[2]{\ensuremath{\mathrm{Map}(#1,#2)}}
+\newcommand\rels[2]{\ensuremath{\mathrm{Rel}(#1,#2)}}
+\newcommand\perm[1]{\ensuremath{\mathrm{Sym}_{#1}}}
+\newcommand\com[1]{\ensuremath{#1^{\mathrm{c}}}}
+\newcommand\ga[1]{\ensuremath{A(#1)}}
+\newcommand\gsa[1]{\ensuremath{\sigma\left(#1\right)}}
+\newcommand\rsp[1]{\ensuremath{\mathbb{R}^{#1}}}
+\newcommand\bor[1]{\ensuremath{\mathrm{Bor}(#1)}}
+\newcommand\restr[1]{\ensuremath{\!\upharpoonright_{#1}}}
+\newcommand\sesy[1]{\ensuremath{\mathbf{#1}}}
+\newcommand\ind[1]{\ensuremath{\mathbf{1}_{#1}}}
+\newcommand\simfun[1]{\ensuremath{\mathrm{SF}(#1)}}
+\newcommand\normdst[2]{\ensuremath{\mathrm{N}\left(#1,#2\right)}}
+\newcommand\pfwd[2]{\ensuremath{#1_{\!*\kern 0.05em}#2}}
+\newcommand\plbk[2]{\ensuremath{#1^{*\!}#2}}
+\newcommand\id[1]{\ensuremath{\mathop{\mathrm{id}_{#1}}}}
+\newcommand\suchthat{\mathrel{}\middle|\mathrel{}}
+\newcommand\inttil[1]{\ensuremath{\left[\!\left[#1\right]\!\right]}}
+\newcommand\posval[1]{\ensuremath{H_{0}\left(#1\right)}}
+
+% funkcie deleni intervalu
+\newcommand\loid[1]{\ensuremath{L(#1)}}
+\newcommand\noid[1]{\ensuremath{\Delta(#1)}}
+
+% zlozitejsie objekty
+\newcommand\setbuild[2]{\ensuremath{\left\{#1\mathrel{}\middle|\mathrel{}#2\right\}}}
+
+% konstrukty suvisejuce so zobrazeniami
+\newcommand\dom{\ensuremath{\mathop{\mathrm{Dom}}}}
+\newcommand\ran{\ensuremath{\mathop{\mathrm{Im}}}}
+
+% stredná hodnota
+\newcommand\expc[1]{\ensuremath{\mathbb{E}\left(#1\right)}}
+
+% disperzia
+\newcommand\disp[1]{\ensuremath{\mathbb{D}\left(#1\right)}}
+
+% pravdepodobnostna miera
+\newcommand\prob{\ensuremath{\mathop{\mathrm{Pr}}}}
+
+% rozmanite druhy intervalov
+\newcommand\clint[1]{\ensuremath{\left[#1\right]}}
+\newcommand\opint[1]{\ensuremath{\left(#1\right)}}
+\newcommand\lcint[1]{\ensuremath{\left[#1\right)}}
+\newcommand\rcint[1]{\ensuremath{\left(#1\right]}}
+
+\newcommand\cluint{\ensuremath{\left[0,1\right]}}
+\newcommand\opuint{\ensuremath{\left]0,1\right[}}
+\newcommand\rcuint{\ensuremath{\left]0,1\right]}}
+\newcommand\lcuint{\ensuremath{\left[0,1\right[}}
+
+% rozne mnoziny
+%\newcommand\nnreal{\ensuremath{\left[0,\infty\right[}}
+\newcommand\nnreal{\ensuremath{\mathbb{R}_{\ge0}}}
+
+\renewcommand\d{\ensuremath{\mathrm{d}}}
+
+% rozne funkcionalne priestory alebo priestory mier
+\newcommand\rndr[1]{\ensuremath{\mathop{\mathrm{RN}}\left(#1\right)}}
