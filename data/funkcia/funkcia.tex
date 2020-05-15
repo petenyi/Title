@@ -1,0 +1,192 @@
+% !TeX root = skripta.tex
+% 24.4.2019 pocet slov v tejto kapitole 1000
+% 28.9.2019 pocet slov 1975, celkovo 36 stran
+
+\chapter{Skalárna funkcia jednej premennej}
+
+Budeme sa odvolávať na pojem \textsc{zobrazenie} v matematike, čo je vo všeobecnosti predpis, ktorý každému prvku jednej množiny priraďuje nejaký prvok inej množiny. {\it Reálna funkcia reálnej premennej}\index{funkcia!skalárna!jednej premennej} alebo pre účely tohto textu i {\it skalárna funkcia jednej premennej} bude zobrazenie, kde prvá množina, t.j. \textsc{definičný obor}, je interval, a druhá množina, teda \textsc{obor hodnôt}, je podmnožina reálnych čísel. Ohľadne intervalu pre definičný obor pripúšťame i varianty, kde ľavý bod intervalu je mínus nekonečno alebo kde pravý bod je plus nekonečno, včítane špeciálneho prípadu, kedy interval je celá množina reálnych čísel. Začneme posledne menovaným prípadom, kedy teda definičný obor je $\mathbb R$.
+
+%\subsection{Neohraničený definičný obor}
+
+Pojem funkcie nám slúži na abstraktnú a všeobecnú definíciu vzťahu (predpisu) medzi závislou premennou a medzi nezávislou premennou. Stručný ekvivalentný matematický zápis bude
+\begin{equation}
+\label{yfx}
+y = f(x), \, x \in \mathbb R
+\end{equation} 
+alebo, ak sa chceme vyhnúť označeniu premenných a opísať len, že $f$ je reálna funkcia jednej premennej, 
+\begin{equation}
+\label{funkcia}
+f : \mathbb R \rightarrow \mathbb R \,.
+\end{equation} 
+Súvis tvaru (\ref{yfx}) s tvarom v podobe (\ref{funkcia}) sa niekedy vyjadruje zápisom $x \in \mathbb{R} \rightarrow f(x) \in \mathbb{R}$. Je možno dôležité upozorniť, že pre definíciu funkcie tvaru (\ref{yfx}) nie je samozrejme nutné značiť {\it argument funkcie}\index{argument!funkcie} (nezávislú premennú) písmenom $x$ a hodnotu funkcie (závislú premennú) písmenom $y$. 
+
+V ďalšom texte uvedieme viaceré príklady funkcií, predtým si však zdôraznime jednu nutnú vlastnosť všetkých funkcií pre naše účely - budeme prirodzene predpokladať, že hodnotu funkcie budeme vedieť určiť (vypočítať) pre akýkoľvek argument z definičného oboru. Jediné čo sme ochotný akceptovať, že určenie hodnoty funkcie v netriviálnych prípadoch je časovo či inak náročné, preto sa budeme v takýchto prípadoch snažiť ``volať'' (vyhodnotiť) funkciu čo najefektívnejšie. V každom prípade podoba funkcie, kde by sme sa vopred nemohli spoľahnúť, že jej hodnoty sú nám k dispozícii pre argumenty z definičného oboru, je pre naše účely neprípustná.
+
+Ak to bude možné budeme sa v texte  snažiť používať značenie $f(x)$ len pre funkciu $f$ ľubovoľného argumentu $x$ z definičného oboru, čo môžme zdôrazniť pridanou informáciou, že $x \in \mathbb{R}$. Aby sme odlíšili nejakú konkrétnu hodnotu funkcie pre nejakú konkrétnu hodnotu argumentu, budeme používať napríklad značenie $f(\overline x)$, kde $\overline x$ je nejaká zvolená hodnota argumentu.
+
+\begin{pz}
+{\it PF Asi nepoužijem.}
+Skôr než začneme uvádzať akékoľvek vedomosti o funkciách, musíme si uviesť jednu základnú, ktorá bude pre nás kľúčová, a to pojem spojitej funkcie. Už v kapitole o číslach sme si uviedli pojem limity postupnosti reálnych čísel. Predstavme si teraz postupnosť ``malých'' reálnych kladných čísel, ktoré monotónne konvergujú k nule, teda
+\begin{equation}
+\label{limitaargumentu}
+\lim_{k \rightarrow \infty} \epsilon_k = 0 \,, \,\, \epsilon_0 > \epsilon_1 > \ldots > 0 \,.
+\end{equation}
+
+Označme si pre nejaký argument $\x$ postupnosť $x_k := \x - \epsilon_k$. Platí samozrejme $x_k \rightarrow \x$ pre $k \rightarrow \infty$. pričom táto postupnosť konverguje ku $\x$ monotónne zľava, teda $x_0 < x_1 < \ldots <\x$.
+\end{pz}
+
+Veľmi názorná reprezentácia funkcie jednej premennej je jej {\it graf}\index{graf!funkcie}, čo je množina bodov $(x,y) \in \mathbb{R}^2$, kde $y=f(x)$. Základná vlastnosť funkcie je, že pre každé $x$ z definičného oboru existuje jediné $y$ také, že $y=f(x)$.
+
+Množina všetkých reálnych funkcií jednej premennej je veľmi široký pojem, ktorý si nutne musíme zúžiť na tie funkcie, ktoré budú mať vlastnosti, ktoré nám umožnia aplikovať metódy spojitej optimalizácie. 
+Začnime s príkladmi funkcií, ktoré su definované explicitne. Ako prvé si uvedieme tie, ktoré su tvorené \textsc{algebraickým výrazom}, teda podobne ako aritmetický číselný výraz, kde však miesto reálneho čísla môžme použiť znak pre nezávislú premennú, v našom prípade $x$, prípadne i ďalšie znaky čí písmená, ktoré budú označovať konštantné \textsc{parametre} funkcie. Známy príklad je kvadratická funkcia,  kedy
+\begin{equation}
+\label{kvadraticka}
+f(x)=a x^2+b x+c \,, \,\, a,b,c \in \mathbb{R} \,, \,\, a \neq 0 \,.
+\end{equation}
+Zo zápisu je zrejmé, že nezávislá premenná je $x$, ktorú uvažujeme v tejto časti na množine $\mathbb{R}$. Ostatné písmena označujú síce ľubovoľné reálne čísla (v prípade písmena $a$ len nenulové), ktoré však akonáhle  konkrétne zvolíme, už sa nebudú meniť. Inak povedané v tejto chvíli nás nezaujíma zmena funkcie $f$ vzhľadom na zmenu hodnôt parametrov $a, b, c$. Treba však priznať, že niekedy hranica medzi pojmami konštantný parameter a nezávislá premenná (teda vlastne variabilný parameter) býva  neostrá.
+
+Motivácia zápisu funkcie s parametrami je zrejmá. Typicky chceme ukázať nejaké vlastnosti funkcie, ktoré platia pre ľubovoľné (prípadne čiastočne obmedzené) hodnoty týchto parametrov, napríklad pre kvadratickú funkciu môžme uviesť vzorec na výpočet jej koreňov aj pre všeobecný tvar uvedený v (\ref{kvadraticka}).
+
+Podobne ako kvadratickú funkciu môžme definovať ďalšie funkcie, kde použijeme základné algebraické počtové úkony akými sú sčítanie, odpočítanie, násobenie, delenie (nenulovým číslom), prípadne umocňovanie, kde exponent je prirodzené číslo. 
+V tomto texte budeme sa odvolávať i na mnohé takzvané elementárne funkcie, ktoré majú svoje špeciálne pomenovanie, konkrétne \textsc{polynomická funkcia}, \textsc{racionálna  funkcia}, \textsc{exponenciálna funkcia}, \textsc{logaritmická funkcia} a \textsc{trigonometrické funkcie}, ktoré takisto môžme kombinovať konečným počtom algebraických operácií. Je samozrejme dôležité si uvedomiť, aký je definičný obor výslednej funkcie, keďže niektoré z uvedených algebraických operácií nie je možné prevádzať s ľubovoľnými reálnymi číslami, ale len na nejakej podmnožine reálnych čísel, napríklad len pre kladné reálne čísla.
+
+{\it zložená funkcia, inverzná funkcia}
+
+Vyššie uvedené funkcie môžme nazvať {\it explicitné funkcie}, keďže, aspoň formálne, ich vieme explicitne definovať, čiže ich tvar nám dáva priamy návod ako vypočítať bhodnoty funkcii.  Ďalší spôsob ako zadať funkciu je nepriamo, kedy zadáme úlohu, ktorej riešením je naša funkcia. Môže sa napríklad jednať o {\it implicitnú funkciu}, ktorá je daná cez rovnicu (rovnosť) pre obe premenné, $x$ a $y$, a ktorej riešenie, ak existuje, sa vyjadrí ako funkcia $y=f(x)$. Na tento spôsob sa neskôr odvoláme, keď budeme klásť podmienky na optimálne riešenie nejakého problému v podobe rovností. Ako jednoduchý príklad môžme zvoliť implicitnú definíciu priamky
+$$
+a x + b y + c = 0 \,, \quad a,b,c \in \mathbb{R} \,, \,\, a \neq 0 \,, \,\, b \neq 0 \,,
+$$
+z ktorej dostaneme explicitnú definíciu funkcie $y=f(x)=-\frac{a x + c}{b}$.
+
+Ešte zložitejší spôsob, na ktorý sa budeme odvolávať, je keď funkcia je implicitne definovaná ako riešenie diferenciálnej rovnice, ale to predbiehame.
+
+Keďže uvedeným zoznamom sme ani zďaleka nevyčerpali všetky možnosti spôsobu definície funkcie, sformulujeme si minimálne predpoklady, ktoré na funkciu budeme klásť. Na viacerých miestach v tejto časti si  prediskutujeme, čo by mohol byť {\it najhorší možný scenár} našich predpokladov. Je to ako predstaviť si situáciu, že niekto má na starosti odpovedať na všetky naše otázky ohľadne skúmanej funkcie a že dotyčný, v rámci stratégie najhoršieho možného scenára, sa až po obdržaní otázky rozhodne  pre nás nevýhodne odpovedať a definíciu funkcie v tomto ohľade prispôsobiť.
+
+{\it pf - spojitosť funkcie, spojitá diferencovateľnosť, konečný počet bodov nespojitosti}
+
+Ako príklad reálnej funkcie reálnej premennej, ktorá je úplne mimo nášho záujmu, je takzvaná Dirichletova funkcia, ktorá sa rovná $1$ pre všetky racionálne čísla a jej hodnota je $0$ pre všetky iracionálne čísla. Napriek tomu, že jej definícia je priamočiara, graf Dirichletovej funkcie nevieme znázorniť a táto funkcia je nespojitá v ľubovoľnom bode $x \in \mathbb{R}$. 
+
+
+\chapter{Obyčajné diferenciálne rovnice}
+
+\section{Spojitý opis}
+
+Prvá úvaha, ktorá je potrebná na posúdenie, či nejaká praktická aplikácia sa dá opísať matematickým modelom, ktorý si tu čoskoro zavedieme, je, či deje a javy, ktoré nás zaujímajú, sa dajú matematicky opísať ako spojité a diferencovateľné funkcie. Pripomeňme si, ktoré ingredience sú k tomu potrebné.
+
+Z tohto pohľadu musí byť v našej aplikácii prítomná aspoň jedna nezávislá reálna premenná. Prakticky vždy túto požiadavku spĺňa čas, ktorý vieme merať a plynie od nás nezávislo, aj keby sme radi jeho plynutie vedeli ovplyvniť. V týchto skriptách jeho matematickej podobe rezervujeme exkluzívne označenie $t$, pričom predpokladáme, že $t \in \mathcal{R}$. 
+
+Nie je nutné, a ani tak nebudeme robiť, uvažovať len nezáporné hodnoty pre $t$, keďže typicky $t=0$ bude predstavovať začiatok v našom opise a tak $t>0$ môže označovať časové úseky do budúcnosti, kým $t<0$  môžu reprezentovať časové úseky do minulosti, teda znamienko mínus treba brať len ako smer plynutia času a dĺžka časového úseku uplynutého od začiatku je tak vo všeobecnosti $|t|$.
+
+Neskôr si spomenieme aj iné fyzikálne, ekonomické či inak vyčísliteľné veličiny, ktoré môžu plniť úlohu nezávislých premenných, teraz budemevyužívať len jedinú, čas $t$. Prejdime teda k ďalšej ingrediencii potrebnej v tejto kapitole, ktorou sú závislé premenné. Tu sú možnosti nepreberné. Všetko, čo vieme  merať v nejakom časovom okamihu, čoho hodnoty sa časom menia, pričom takúto zmenu si vieme predstaviť dostatočne (najlepšie ľubovoľne) malú, je kandidátom na reálnu závislú premennú. Dôležitým predpokladom je, že týchto veličín je len konečne veľa (a samozrejme aspoň jedna), preto závislé premenné budeme indexovať. Konkrétna voľba na pomenovanie závislých premenných v tejto kapitole padla na písmeno $x$ a index budeme značiť písmenom $i$. Ak $N$ bude značiť počet týchto premenných, potom $x_i$, $i=1,2,\ldots,N$ budú jednotlivé závislé premenné. V duchu kapitoly o skalároch a vektoroch budeme používať i značenie ${\bf x} \in \mathcal{R}^N$, teda ${\bf x}=(x_1,x_2,\ldots,x_N)$. Ak $N=1$, potom zvykneme index vynechávať, keďže je nadbytočný.
+
+Fakt, že hodnoty závislých premenných sa menia v závislosti od času, budeme vektorovo značiť
+$$
+{\bf x} = {\bf x}(t) \,, t \in \mathcal{R} \,.
+$$
+Takto šetríme písmenami abecedy, keďže na pomenovanie závislej premennej ${\bf x}$ ako aj pomenovanie funkcie ${\bf x}(t)$ použijeme to isté písmeno, čo je bežná prax, ak nepotrebujeme medzi uvedenými pojmami striktne rozlišovať. Budeme používať i analogický zápis po zložkách, teda $x_i=x_i(t)$, $i=1,2,\ldots,N$.
+
+Fakt, že uvedenú vektorovú funkciu uvažujeme len spojite diferencovateľnú, znamená, že existuje jej derivácia podľa času, čo je znova funkcia (spojitá), ktorú prirodzene označíme ${\bf x}'(t)=(x_1'(t),x_2'(t),\ldots,x_N'(t))$. Jednotlivé zložky tejto vektorovej funkcie $x'_i(t)$ nám dávajú veľmi dôležitú informáciu, keďže charakterizujú veľkosť a smer okamžitej zmeny premennej $x_i$ v každom čase $t \in \mathcal{R}$. Keďže sa v tejto podkapitole chceme vyhnúť značeniu $x_i'$, čo sa niekedy používa pre premenné v stavovom priestore, v ktorom funkcie $x_i'(t)$ nadobúdajú hodnotu, teda $x_i'=x_i'(t)$, $t \in {\mathcal R}$, zavedieme pre tento účel nové stavové premenné, konkrétne $v_i \in {\mathcal R}$ a vektorovo ${\bf v} \in {\mathcal R}^N$. Takto sa môžme vyhnúť označeniu ${\bf x}'$ (už sa to nebude opakovať) a písať
+\begin{equation}
+\label{v=x}
+{\bf v}  = {\bf x}'(t) \,, \quad t \in \mathcal{R} \,.
+\end{equation}
+
+Je zrejmé, že stavové veličiny ${\bf v}$ vyjadrujú inú kvantitu ako stavové veličiny $\bf x$.
+Ak premenná $x_i$ predstavuje nejakú veličinu meranú v nejakej fyzikálnej jednotke, napríklad $Z$, čo zapisujeme $x_i \, [Z]$, potom derivácia podľa času je vyjadrená v jednotkách $v_i \, [Z s^{-1}]$, ak nezávislá premenná $t$ predstavuje čas v sekundách, teda $t \,[s]$.  Najznámejší konkrétny príklad je pohyb bodu (napríklad reprezentatívny bod nejakého tuhého telesa alebo častica tekutiny), kedy ${x} \, [m]$ môže značiť jeho polohu (vzdialenosť) v metroch a teda ${v} \, [m s^{-1}]$ je jeho rýchlosť v metroch za sekundu. Teoreticky stavové veličiny $x_i$ môžu byť v nejakej aplikácii bezrozmerné, vtedy píšeme $x \, []$ a ${v} \, [s^{-1}]$. Je dokonca možné (a často i užitočné) uvažovať všetky veličiny bezrozmerné včítane tých nezávislých, teda i času, a vtedy zápis s hranatými zátvorkami môžme vynechať, čo budeme i robiť.
+
+Všetky predchádzajúce úvahy môžme aplikovať i na stavové premenné $v_i$, ktoré v prípade že sú dané ako spojite diferencovateľné funkcie, majú deriváciu a ktorú si, celkom prirodzene, označiť ako $v_i'(t)$. Hodnoty týchto funkcií budeme uvažovať znova v priestore stavových premenných, ktoré vektoro označíme ${\bf a} \in {\mathcal R}^N$ a teda
+\begin{equation}
+\label{a=v}
+{\bf a} = {\bf v}'(t) \,, \quad t \in \mathcal{R} \,.
+\end{equation}
+Samozrejme značenia (\ref{v=x}) a (\ref{a=v}) môžme dať dokopy, kedy dostaneme
+\begin{equation}
+\label{a=x}
+{\bf a} = {\bf x}''(t) \,, \quad t \in \mathcal{R} \,,
+\end{equation}
+kde na pravej strane vystupuje druhá derivácia vektorovej funkcie ${\bf x}(t)$. Vektorová premenná $\bf a$, konkrétne jej zložky $a_i$, takto opisuje akceleráciu zmeny veličín $x_i$ v čase, teda zrýchlenie alebo spomalenie (podľa znamienka). Ak by veličiny boli vyjadrené vo fyzikálnych jednotkách, ako sme činili v predchádzajúcich úvahách, akcelerácii prisudzujeme fyzikálne jednotky $[Z s^{-2}]$.
+
+Tým sme náš abstraktný opis ukončili a môžme sa chvíľu venovať čo by v praxi premenné $x_i$ mohli označovať. Upozornime na fakt, že v princípe sme ešte žiadne modelovanie nepoužili, len sa odvolávame na fakt, že nejaké deje a javy sa menia spojito v čase a sú merateľné v princípe reálnymi číslami.
+
+\begin{pr}
+examples
+\begin{itemize}
+\item pohyb áut na diaľnici
+\item pohyb čiastočiek v prúdiacej tekutine
+\end{itemize}
+\end{pr}
+
+\begin{pz}
+Ďalšími veličinami, vzhľadom na ktorých zmenu skúmame zmeny iných veličín, sú súradnice. Ak si napríklad do priestoru, ktorý nás reálne obklopuje, vieme umiestniť súradnicovú sústavu, môžme jeho každý bod reprezentovať $n$-ticou čísel, kde $n$ je dimenzia priestoru, ktorý súradnicová sústava opisuje. ....
+\end{pz}
+
+Nedá sa nepripomenúť na tomto mieste fakt, že spojitosť plynutia (zmien) času, presnejšie jeho reprezentácia množinou reálnych čísel, je skôr abstraktná matematická predstava. V praxi sme a asi i naďalej budeme obmedzený technickými možnosťami prístrojov, ktoré čas merajú. Napríklad takzvané atómové hodiny sú schopné namerať najkratšiu nenulovú časovú dĺžku približne $10^{-11}$ sekundy \cite{wiki:atom}. 
+Takisto naša predstava ľuvoľne malej zmeny závislej premennej  je prakticky vždy abstraktná. 
+
+Na druhej strane aplikácie, ktoré napríklad vnímame našimi zmyslami ako boli uvedené v predchádzajúcich príkladoch, túto abstrakciu bez problémov umožňujú. 
+
+\section{Matematický model}
+
+Matematický model skúmanej aplikácie, u ktorej akceptujeme, že ju je možné opísať cez spojite diferencovateľné zmeny nejakých veličín vzhľadom na jednu nezávislú premennú, vznikne v tej chvíli, keď jednoducho vymeníme ľavú a pravú stranu rovnosti (\ref{v=x}), teda 
+\begin{equation}
+\label{x=v}
+{\bf x}'(t) = {\bf v} \,, \quad t \in \mathcal{R} \,,
+\end{equation}
+pričom tento zápis je zatiaľ formálny a ešte ho upresníme.
+
+ Pripomíname, že používame zaužívaný úzus, že na pravej strane rovností sa nachádzajú výrazy, ktoré su dané alebo ich vieme explicitne vyrátať matematickými operáciami z nejakých daných dát.
+Z tohto pohľadu rovnosť ${\bf v}={\bf x}'(t)$ v (\ref{v=x}) treba chápať ako definíciu funkcie ${\bf v}={\bf v}(t)$, ktorá nám dáva explicitný návod ako určiť $\bf v$ pre nejakú {\it danú} funkciu ${\bf x}$ pomocou matematickej operácie derivovania.
+Rovnosť (\ref{x=v}) nám však vo všeobecnosti tento návod nedáva a predstavuje implicitnú definíciu funkcie ${\bf x}(t)$, pričom nám ponúka teoretickú možnosť nájsť túto funkciu ako riešenie obyčajnej diferenciálnej rovnice (\ref{x=v}).
+
+Skôr než sa tomuto pohľadu budeme venovať podrobnejšie, treba si zopakovať dôležitý fakt, že derivácia ľubovoľnej funkcie je jednoznačne určená, teda ak zderivujeme konkrétnu funkciu $\bf x$, potom existuje jediná konkrétna funkcia, ktorá si zaslúži označenie $\bf x'$. Takto je teda zápis (\ref{v=x}) jednoznačný. 
+
+Iná sitiuácia je, ak poradie funkcií v predchádzajúcom fakte vymeníme a pýtame sa, či pre nejakú konkrétnu funkciu $\bf v$ existuje jediná funkcia $\bf x$, taká, že platí (\ref{x=v}). V takom prípade je odpoveď záporná, keďže platí triválne, že ak pre nejakú konkrétnu funkciu ${\bf x}'={\bf v}$, potom aj $({\bf x}+c)'={\bf v}$, kde $c \in \mathcal{R}$  je ľubovoľné reálne číslo. Dôsledkom je, že ak poznáme jednu funkciu, pre ktorú platí (\ref{x=v}), potom vieme triviálne nájsť nekonečne veľa rôznych funkcií, pre ktoré platí (\ref{x=v}) takisto a ktoré sa líšia len o pripočítanú konštantu $c$.
+
+Táto situácia nie je žiadnym paradoxom. Je zrejmé už z Príkladu X o autíčku, že ak zvolíme jednoznačnú stratégiu riadenia rýchlosti auta v čase, určíme jednoznačne jeho dráhu. Kde však konkrétne auto svoju dráhu pri zvolenom priebehu rýchlosti zrealizuje, závisí aj od toho, kde ju začne alebo kde ju skončí, alebo úplne všeobecne, dráhu jednoznačne určíme, keď poznáme polohu auta aspoň v jednom konkrétnom čase. 
+
+Je teda prirodzené, že rovnicu (\ref{x=v}) doplníme o takzvanú {\it začiatočnú podmienku}\index{podmienka!začiatočná}, tým, že pre nejaký ľubobolný, ale pevne zvolený čas $t_0 \in \mathcal{R}$  predpíšeme (poznáme) hodnotu ${\bf x}(t_0)$, ktorú označíme, celkom pochopiteľne, ${\bf x}_0 \in \mathcal{R}^N$, teda
+\begin{equation}
+\label{x0}
+{\bf x}(t_0) = {\bf x}_0 \,.
+\end{equation}
+
+Treba priznať na tomto mieste, že doplnením diferenciálnej rovnice (\ref{x=v}) o začiatočnú podmienku (\ref{x0}) sme nie nutne vyriešili problém jednoznačnosti, či pre dané ${\bf v}$ existuje jediné ${\bf x}$, ktoré spĺňa (\ref{x=v}) a (\ref{x0}), ale ako si ukážeme čoskoro, pre ``slušné" funkcie ${\bf v}$ tomu tak je.
+
+V tejto chvíli máme prevedené všetky potrebné úvahy na zavedenie pojmu {\it začiatočná úloha pre obyčajné diferenciálne rovnice}\index{úloha!začiatočná pre ODR}. Urobíme tak v dvoch leveloch podľa všeobecnosti (zložitosti) definície funkcie ${\bf v}$ na pravej strane v (\ref{=v}).
+
+\subsection{Model s explicitnou pravou stranou}
+
+Najjednoduchší (ale málo všeobecný) prípad obyčajných diferenciálnych rovníc so začiatočnou podmienkou je, keď funkcia ${\bf v}$ je explicitne daná (definovaná), ako sme prezentovali v kapitole XX. Formálne to zapisujeme ${\bf v}={\bf v}(t)$, teda že funkcia závisí len od jednej nezávislej premennej. Začiatočnú úlohu takto môžme zapísať kompaktne vo vektorovom zápise
+\begin{equation}
+\label{xx=v}
+{\bf x}'(t) = {\bf v}(t) \,, \,\, t \in \mathcal{R} \,, \quad {\bf x}(t^0) = {\bf x^0} \,.
+\end{equation}
+
+Ekvivalentný zápis po zložkách pre obyčajné diferenciálne rovnice je vo tvare
+\begin{equation}
+\label{x=vxxx}
+x_i'(t) = v_i(t) \,, \,\, i=1,2,\ldots,N \,, \quad t \in \mathcal{R} \,.
+\end{equation}
+a ekvivalentný zápis po zložkách pre začiatočnú podmienku zapisujeme
+\begin{equation}
+\label{xt0}
+x_i(t^0) = x_i^0 \,, \,\, i=1,2,\ldots,N \,.
+\end{equation}
+
+V predchádzajúcej sekcii sme diskutovali aj otázku jednoznačnosti riešenia začiatočnej úlohy, ktorú už teraz máme v konkrétnejšom tvare (\ref{xx=v}). Keďže nás zaujímajú zatiaľ len úlohy, ktorých riešenia sú spojité funkcie spolu s ich deriváciami, je zrejmé z (\ref{x=vxxx}), že funkcie $v_i$ musia byť nutne spojité. Dobrá správa je, že je to pre naše účely i postačujúca podmienka, pretože platí, ža ak $\bf v$ je spojitá funkcia, tak úloha (\ref{xx=v}) má jediné riešenie $\bf x$.
+
+Tento jednoduchý, ale názorný tvar systému ODR nám vlastne len vraví, že stavové funkcie $x_i(t)$, $t \in \mathcal{R}$, ktoré sú spojite diferencovateľné, vieme ekvivalentne a jednoznačne definovať aj len pomocou ich derivácií $x_i'(t)$, $t \in \mathcal{R}$ ak poznáme hodnoty $x_i(t^0)$ pre nejaký čas (hodnotu argumentu) $t^0 \in \mathcal{R}$.
+
+\begin{pz}
+Na úlohu (\ref{xx=v}) sa často díva ako na systém ODR len formálne, keďže jej riešenie vieme vyjadriť explicitne pomocou integrálneho počtu, konkrétne,
+\begin{equation}
+\label{intx=v}
+x_i(t) = x_i^0 + \int \limits_{t^0}^{t} v_i(s) ds \,.
+\end{equation}
+Keďže v tomto texte sa snažíme minimalizovať používanie rôznych (aj keď dôležitých) pôjmov, nebudeme sa zápisom našej úlohy v integrálnom tvare podrobnejšie zaoberať, uveďme si len dva významné fakty v tejto súvislosti. Za prvé, ak poznáme (neurčitý) integrál z funkcií $v_i$, potom vzťah (\ref{intx=v}) nám dáva explicitný predpis pre riešenie úlohy (\ref{xx=v}). Za druhé ak nepoznáme integrály z funkcií $v_i$, potom neskoršie časti o numerickém riešení úlohy (\ref{xx=v}) môžme v princípe použiť i na numerický výpočet takýchto určitých integrálov. Pre podrobnosti pozri napríklad \cite{X}.
+\end{pz} 
+
+\subsection{Model so všeobecnou pravou stranou}
+
+Po uvedení jednoduchého, ale názorného tvaru systému ODR si uveďme všeobecný tvar, ktorý nám umožní už matematicky modelovať netriviálne úlohy. Takýto kvalitatívny skok nám umožní ...
+{\it PF pokračovať kedykoľvek, naposledy v piatok 13.12.2019.}
